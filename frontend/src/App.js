@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ConversationsList from './component/ConversationsList';
+import ConversationsList from './component/conversationsList';
+
 
 
 class App extends Component {
@@ -9,6 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         <ConversationsList />
+
       </div>
     );
   }

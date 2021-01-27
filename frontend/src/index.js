@@ -3,14 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ActionCableProvider } from 'react-actioncable-provider';
-import registerServiceWorker from './registerServiceWorker';
-import { API_WS_ROOT } from './constants';
+
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import thunk from 'redux-thunk';
+import messagesReducer from './reducers/messagesReducer.js';
+
+const store = createStore(messagesReducer, applyMiddleware(thunk))
+
 
 ReactDOM.render(
-  <ActionCableProvider url={API_WS_ROOT}>
+  <Provider store={store}>
     <App />
-  </ActionCableProvider>,
+  </Provider>,
   document.getElementById('root')
 );
 
@@ -18,4 +23,3 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-registerServiceWorker();

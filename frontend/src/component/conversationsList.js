@@ -1,9 +1,9 @@
 import React from 'react';
 import { ActionCable } from 'react-actioncable-provider';
 import { API_ROOT } from '../constants';
-import NewConversationForm from './NewConversationForm';
-import MessagesArea from './MessagesArea';
-import Cable from './Cable';
+import NewConversationForm from './newConversationForm';
+import MessagesArea from './messageArea';
+import Cable from './cable';
 
 class ConversationsList extends React.Component {
   state = {
@@ -35,7 +35,7 @@ class ConversationsList extends React.Component {
       conversation => conversation.id === message.conversation_id
     );
     conversation.messages = [...conversation.messages, message];
-    this.setState({ conversations });
+    this.setState({ messages });
   };
 
   render = () => {
@@ -54,15 +54,15 @@ class ConversationsList extends React.Component {
         ) : null}
         <h2>Conversations</h2>
         <ul>{mapConversations(conversations, this.handleClick)}</ul>
-        <NewConversationForm />
-        {activeConversation ? (
+
+        <p>{activeConversation ? (
           <MessagesArea
             conversation={findActiveConversation(
               conversations,
               activeConversation
             )}
           />
-        ) : null}
+        ) : null}</p>
       </div>
     );
   };
@@ -81,9 +81,9 @@ const findActiveConversation = (conversations, activeConversation) => {
 const mapConversations = (conversations, handleClick) => {
   return conversations.map(conversation => {
     return (
-      <li key={conversation.id} onClick={() => handleClick(conversation.id)}>
+      <p key={conversation.id} onClick={() => handleClick(conversation.id)}>
         {conversation.title}
-      </li>
+      </p>
     );
   });
 };

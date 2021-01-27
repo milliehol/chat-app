@@ -1,19 +1,19 @@
 import React from 'react';
-import NewMessageForm from './NewMessageForm';
+import NewMessageForm from './newMessageForm';
 
-const MessagesArea = ({
+const MessageArea = ({
   conversation: { id, title, messages },
 }) => {
   return (
-    <div className="messagesArea">
+    <div className="messageArea">
       <h2>{title}</h2>
-      <ul>{orderedMessages(messages)}</ul>
+      <p>{(messages)}</p>
       <NewMessageForm conversation_id={id} />
     </div>
   );
 };
 
-export default MessagesArea;
+export default MessageArea;
 
 // helpers
 
@@ -22,6 +22,6 @@ const orderedMessages = messages => {
     (a, b) => new Date(a.created_at) - new Date(b.created_at)
   );
   return sortedMessages.map(message => {
-    return <li key={message.id}>{message.text}</li>;
+    return <p key={message.id}>{message.text}</p>;
   });
 };
