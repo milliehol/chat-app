@@ -1,7 +1,8 @@
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ConversationsList from './components/ConversationsList';
-import ConversationsList from './components/ConversationsList';
+import ConversationsList from './component/ConversationsList';
+
 
 class App extends Component {
   render() {
