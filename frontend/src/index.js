@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ActionCableProvider } from 'react-actioncable-provider';
+import registerServiceWorker from './registerServiceWorker';
+import { API_WS_ROOT } from './constants';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <ActionCableProvider url={API_WS_ROOT}>
     <App />
-  </React.StrictMode>,
+  </ActionCableProvider>,
   document.getElementById('root')
 );
 
@@ -15,3 +18,4 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+registerServiceWorker();
