@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ConversationsList from './component/conversationsList';
+import Chat from './components/chat';
 
 
 
@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ConversationsList />
+        <Chat />
 
       </div>
     );
