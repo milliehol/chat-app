@@ -8,7 +8,7 @@ return (dispatch) => {
     fetch(`${API_ROOT}/conversations`).then(response => {
       return response.json()
     }).then(responseJSON => {
-      dispatch({ type: 'SET_MESSAGES', cats: responseJSON.messages })
+      dispatch({ type: 'SET_MESSAGES', messages: responseJSON.messages })
     })
   }
 }
