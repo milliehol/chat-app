@@ -1,12 +1,18 @@
 export const ADD_MESSAGE = 'ADD_MESSAGE';
 export const SET_MESSAGES = 'SET_MESSAGES';
 
+
 export function setMessages(messages) {
-  return {
-    type: SET_MESSAGES,
-    messages: messages
-  };
+return (dispatch) => {
+    dispatch({ type: 'SET_MESSAGES'})
+    fetch(`${API_ROOT}/conversations`).then(response => {
+      return response.json()
+    }).then(responseJSON => {
+      dispatch({ type: 'SET_MESSAGES', cats: responseJSON.messages })
+    })
+  }
 }
+
 
 export function addMessage(message) {
   return {
